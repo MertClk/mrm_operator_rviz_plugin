@@ -1,0 +1,9 @@
+<library path="mrm_operator_rviz_plugin">
+
+  <class
+    type="rviz_plugins::MrmOperatorRvizPanel"
+    base_class_type="rviz_common::Panel">
+    <description>MrmOperatorRvizPanel</description>
+  </class>
+
+</library>

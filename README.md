@@ -9,9 +9,9 @@ This plugin publishes MRM messages so that mrm_handler can activate desired beha
 | Pull Over             | 2          |
 | MRM Clear             | 3          |
 
-| **Output Topic**         | **Msg Type**               |
-|--------------------------|----------------------------|
-| `/system/selected_mrm`   | `std_msgs::msg::UInt8`     |
+| **Output Topic**         | **Msg Type**                                |
+|--------------------------|---------------------------------------------|
+| `/system/selected_mrm`   | `autoware_adapi_v1_msgs::msg::MrmState`     |
 
 ### Usage
 

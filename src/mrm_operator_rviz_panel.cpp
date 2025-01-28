@@ -53,8 +53,8 @@ void MrmOperatorRvizPanel::onInitialize()
 
   raw_node_ = this->getDisplayContext()->getRosNodeAbstraction().lock()->get_raw_node();
 
-  pub_emergency_status_ =
-    raw_node_->create_publisher<std_msgs::msg::UInt8>("/system/selected_mrm", rclcpp::QoS{1});
+  pub_emergency_status_ = raw_node_->create_publisher<autoware_adapi_v1_msgs::msg::MrmState>(
+    "/system/selected_mrm", rclcpp::QoS{1});
 }
 
 QHBoxLayout * MrmOperatorRvizPanel::makeMRMModeGroup()
@@ -89,32 +89,32 @@ void MrmOperatorRvizPanel::publishDebugData(const char * msg)
 void MrmOperatorRvizPanel::onClickEmergencyStop()
 {
   publishDebugData("Clicked on Emergency Stop Button!");
-  std_msgs::msg::UInt8 msg_mrm;
-  msg_mrm.data = 0;
+  autoware_adapi_v1_msgs::msg::MrmState msg_mrm;
+  msg_mrm.behavior = autoware_adapi_v1_msgs::msg::MrmState::EMERGENCY_STOP;
   pub_emergency_status_->publish(msg_mrm);
 }
 
 void MrmOperatorRvizPanel::onClickComfortableStop()
 {
   publishDebugData("Clicked on Comfortable Stop Button!");
-  std_msgs::msg::UInt8 msg_mrm;
-  msg_mrm.data = 1;
+  autoware_adapi_v1_msgs::msg::MrmState msg_mrm;
+  msg_mrm.behavior = autoware_adapi_v1_msgs::msg::MrmState::COMFORTABLE_STOP;
   pub_emergency_status_->publish(msg_mrm);
 }
 
 void MrmOperatorRvizPanel::onClickPullOver()
 {
   publishDebugData("Clicked on Pull Over Button!");
-  std_msgs::msg::UInt8 msg_mrm;
-  msg_mrm.data = 2;
+  autoware_adapi_v1_msgs::msg::MrmState msg_mrm;
+  msg_mrm.behavior = autoware_adapi_v1_msgs::msg::MrmState::PULL_OVER;
   pub_emergency_status_->publish(msg_mrm);
 }
 
 void MrmOperatorRvizPanel::onClickClear()
 {
   publishDebugData("Clicked on Clear Emergency Button!");
-  std_msgs::msg::UInt8 msg_mrm;
-  msg_mrm.data = 3;
+  autoware_adapi_v1_msgs::msg::MrmState msg_mrm;
+  msg_mrm.behavior = autoware_adapi_v1_msgs::msg::MrmState::NONE;
   pub_emergency_status_->publish(msg_mrm);
 }
 

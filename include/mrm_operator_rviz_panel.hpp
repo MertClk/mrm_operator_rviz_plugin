@@ -27,7 +27,7 @@
 #include <rclcpp/rclcpp.hpp>
 #include <rviz_common/panel.hpp>
 
-#include <std_msgs/msg/u_int8.hpp>
+#include <autoware_adapi_v1_msgs/msg/mrm_state.hpp>
 
 #include <chrono>
 #include <memory>
@@ -58,7 +58,7 @@ protected:
 
   rclcpp::Node::SharedPtr raw_node_;
 
-  rclcpp::Publisher<std_msgs::msg::UInt8>::SharedPtr pub_emergency_status_;
+  rclcpp::Publisher<autoware_adapi_v1_msgs::msg::MrmState>::SharedPtr pub_emergency_status_;
 
   //// Vehicle Override Status
   QLabel * mrm_operator_status_label_ptr_{nullptr};
